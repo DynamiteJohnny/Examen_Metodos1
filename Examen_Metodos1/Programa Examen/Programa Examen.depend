@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1518156940 source:c:\users\usuario\desktop\programa examen\main.c
+	<math.h>
+	<stdio.h>
+
