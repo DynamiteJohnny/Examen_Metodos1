@@ -1,0 +1,3 @@
+C:/Users/shara/Documents/ISC/8Semestre/Metodos/Examen_Metodos1/Examen_Metodos1/Poisson/cmake-build-debug/CMakeFiles/Poisson.dir
+C:/Users/shara/Documents/ISC/8Semestre/Metodos/Examen_Metodos1/Examen_Metodos1/Poisson/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/shara/Documents/ISC/8Semestre/Metodos/Examen_Metodos1/Examen_Metodos1/Poisson/cmake-build-debug/CMakeFiles/rebuild_cache.dir
