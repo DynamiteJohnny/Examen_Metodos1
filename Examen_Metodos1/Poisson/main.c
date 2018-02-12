@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 
-unsigned factorial(unsigned n)
+long long int factorial(int N)
 {
-    if (n == 1 || n == 0) {
-        return 1;
-    }
-    else{
-        return n * factorial(n - 1);
-    }
+    long long ans = 1;
+    int i;
+    for(i=1; i <= N; i++)
+        ans *= i;
+    return ans;
 }
 
 int main() {
@@ -61,7 +60,6 @@ int main() {
 
                     lambda = alpha * tiempo;
                     prob = ( exp(lambda * -1) * pow(lambda ,x1) )/factorial(x1);
-
                     printf("\nProbabilidad es: %f \nMedia y Varianza es: %f \nDesviacion Estandar: %f\n", prob, lambda, sqrt(lambda));
 
                 } else if (opcion2 == 2) {
@@ -79,8 +77,9 @@ int main() {
                     prob = 0;
                     for (int i = x1; i < (x2 + 1); i++) {
                         prob += (exp(lambda * -1) * pow(lambda, i)) / factorial(i);
+
                     }
-                    printf("Probabilidad es: %f \nMedia y Varianza es: %f \nDesviación Estándar: %f\n", prob, lambda, sqrt(lambda));
+                    printf("Probabilidad es: %f \nMedia y Varianza es: %f \nDesviacion Estandar: %f\n", prob, lambda, sqrt(lambda));
                 }
                 break;
             default:
