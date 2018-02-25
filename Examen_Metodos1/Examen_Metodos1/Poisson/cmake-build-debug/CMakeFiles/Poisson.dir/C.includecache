@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/shara/Documents/ISC/8Semestre/Metodos/Examen_Metodos1/Examen_Metodos1/Poisson/main.c
+stdio.h
+-
+math.h
+-
+
