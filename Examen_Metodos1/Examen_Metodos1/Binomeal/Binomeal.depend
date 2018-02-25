@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1518291401 source:c:\users\usuario\documents\todo_un_ingeniero\octavo semestre_tengo miedo\metodos\examen_metodos1\binomeal\main.c
+	<math.h>
+	<stdio.h>
+
