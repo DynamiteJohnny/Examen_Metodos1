@@ -4,7 +4,7 @@ Métodos Cuantitativos y simulación
 Alumnos:
     Shara Teresa González Mena
     Esteban Quintana Cueto
-    Juan Luis Suarez Ruiz
+    Juan Luis Suárez Ruiz
 """
 import math
 
@@ -143,6 +143,26 @@ def procesos_poisson():
 
     return 0
 
+def generador_congruencial_li():
+    print("\n***** Generador congruencial de numeros aleatorios *****")
+    a = float(input("Introduce el valor de a = "))
+    c = float(input("Introduce el valor de c = "))
+    Z0 = float(input("Introduce el valor de Z0 = "))
+    m = float(input("Introduce el valor de m = "))
+    ite = float(input("Introduce el numero de valores aleatorios que desea generar = "))
+    Zi = Z0
+    R = -1
+    run = 1
+    print("\n\tm = %f\tc = %f\tZ0 = %f\ta = %f"%(m,c,Z0,a))
+ 
+    while run <= ite :
+        Zi = ((a*Zi+c) % m)
+        R = Zi/m
+        print("\tZ%i = %f\tR = %f\tIter = %f\n "%(run,Zi,R,run))
+        run = run +1
+
+    return 0
+
 def exponencial():
     print("\n***** Distribución Exponencial *****")
     l = float(input("Introduce el valor de lambda = "))
@@ -172,8 +192,10 @@ options = {1 : formulas_generales,
            3 : binomial,
            4 : poisson,
            5 : procesos_poisson,
-           6 : exponencial, }
+           6 : exponencial,
+	   7 : generador_congruencial_li,
+	   }
 
-num = int(input("DISCRETAS:\n\t1. Fórmulas generales\n\t2. Distribución uniforme discreta\n\t3. Distribución binomial\n\t4. Distribución Poisson\n\t5. Procesos de Poisson\nCONTINUAS:\n\t6. Distribución exponencial\n\nElige una opción: "))
+num = int(input("DISCRETAS:\n\t1. Fórmulas generales\n\t2. Distribución uniforme discreta\n\t3. Distribución binomial\n\t4. Distribución Poisson\n\t5. Procesos de Poisson\nCONTINUAS:\n\t6. Distribución exponencial\nGeneradores:\n\t7. Generador congruencial lineal\n\nElige una opción: "))
 
 options[num]()
