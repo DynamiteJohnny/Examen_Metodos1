@@ -1,6 +1,11 @@
 from random import *
 
+
 def fun(val):
+    return 2*val
+
+
+def fun_two(val):
     res = 0
 
     if (val > 6):
@@ -8,18 +13,29 @@ def fun(val):
     elif (val > 2):
         res = -0.666 + (val/12)
 
-    return val
+    return res
+
+
+def varianza(ls,media):
+    a = len(ls)
+    b = 1 / a
+
+    acumulator = 0
+
+    for i in range(len(ls)):
+        acumulator += pow((ls[i] - media),2)
+
+    return a*acumulator
 
 
 def method():
+
     a = input("Limite inferior:\n")
     b = input("Limite superior:\n")
 
     n = input("Introduce n:\n")
 
     m = input("Introduce m:\n")
-
-    print(m)
 
     numbers = []
     for i in range(n):
@@ -33,6 +49,11 @@ def method():
             numbers.append(x_star)
 
     print numbers
+    print "\nMedia: "
+    media = sum(numbers) / float(len(numbers))
+    print media
+    print "\nVarianza"
+    print varianza(numbers,media)
 
 method()
 
