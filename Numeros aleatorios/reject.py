@@ -21,7 +21,8 @@ def varianza(ls,media):
     b = 1 / a
 
     acumulator = 0
-
+    print(len(ls))
+    
     for i in range(len(ls)):
         acumulator += pow((ls[i] - media),2)
 
@@ -30,34 +31,30 @@ def varianza(ls,media):
 
 def method():
 
-    a = input("Limite inferior:\n")
-    b = input("Limite superior:\n")
-
-    n = input("Introduce n:\n")
-
-    m = input("Introduce m:\n")
+    a = int(input("Limite inferior:\n"))
+    b = int(input("Limite superior:\n"))
+    n = int(input("Introduce n:\n"))
+    m = int(input("Introduce m:\n"))
 
     numbers = []
-    for i in range(n):
-        r1 = random()
-        r2 = random()
+    while True:
+        if (len(numbers) == n):
+            break
+        else:
+            r1 = random()
+            r2 = random()
 
-        x_star = a + (b - a) * r1
-        f_star = fun(x_star)
+            x_star = a + (b - a) * r1
+            f_star = fun(x_star)
 
-        if (r2 <= (f_star/m)):
-            numbers.append(x_star)
+            if (r2 <= (f_star/m)):
+                numbers.append(x_star)
 
-    print numbers
-    print "\nMedia: "
+    print (numbers)
+    print ("\nMedia: ")
     media = sum(numbers) / float(len(numbers))
-    print media
-    print "\nVarianza"
-    print varianza(numbers,media)
+    print (media)
+    print ("\nVarianza")
+    print (varianza(numbers,media))
 
 method()
-
-
-
-
-
