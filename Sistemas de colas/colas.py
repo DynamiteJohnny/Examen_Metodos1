@@ -43,6 +43,7 @@ def little():
 -
 -    print("\n\tLs = %f\tLq = %f\tWs = %f\tWq = %f"%(ls,lq,ws,wq))
 
+
 def mm1():
     print("\n Modelo M/M/1")
 
@@ -79,7 +80,69 @@ def mm1():
             print("Probabilidad de Wq > %f = %f" % (t, p))
     return 0
 
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+def p0(lam,miu,ro,s):
+	sum = 0
+	for n in range(0,s):
+ 		sum = sum + ((math.pow((lam/miu),n)/factorial(n))+((math.pow((lam/miu),s))/(factorial(s)*(1 - ro))))
+	
+	return (1/sum)
+
 def mms():
+	print("\n Modelo M/M/1")
+
+    lam = float(input("Lambda (Tasa media de llegadas) = "))
+    miu = float(input("Miu (Tasa media de servicio) = "))
+    s = float(input("Numero de servideores: "))
+
+    ro = lam/(s*miu)
+
+    p0 = p0(lam,miu,s,ro)
+
+    lq = ((math.pow(lam/miu,s))*p0*ro)/(factorial(s)*math.pow(1 - ro,2))
+    wq = lq/lam
+    ws = wq + (1/lam)
+    ls = lam*ws
+
+    print("\nMedidas de desempeño del sistema: \n\tLs = %f\tLq = %f\tWs = %f\tWq = %f"%(ls,lq,ws,wq))
+    
+    n = float(input("La probabilidad que desea calcular: "))
+
+    pn = (math.pow(lam/miu,n))*p0/(factorial(n))
+
+
+
+"""
+
+    op = 0
+    while(op != 5):
+        print("\nProbabilidades\n\t1. Pn (Probabilidad de tener n clientes)\n\t2. P(Ls > n)\n\t3. P(Ws > t)\n\t4. P(Wq > t)\n\t5. Salir")
+        op = int(input("\n¿Qué probabilidad deseas calcular? "))
+        ro = lam/miu
+
+        if op == 1:
+            n = int(input("Valor de n = "))
+            p = (1 - ro) * pow(ro, n)
+            print("Probabilidad de %d = %f" % (n, p))
+        elif op == 2:
+            n = int(input("Valor de n = "))
+            p = pow(ro, n + 1)
+            print("Probabilidad de Ls > %d = %f" % (n, p))
+        elif op == 3:
+            t = float(input("Valor de t = "))
+            p = math.exp(-miu * (1 - ro) * t)
+            print("Probabilidad de Ws > %f = %f" % (t, p))
+        elif op == 4:
+            t = float(input("Valor de t = "))
+            p = ro * math.exp(-miu * (1 - ro) * t)
+            print("Probabilidad de Wq > %f = %f" % (t, p))
+    return 0
+"""
 
     return 0
 options = { 1 : little,
