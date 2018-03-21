@@ -115,34 +115,9 @@ def mms():
 
     pn = (math.pow(lam/miu,n))*p0/(factorial(n))
 
+    print("\nProbabilidad: W%i = %f"%(n,pn))
 
 
-"""
-
-    op = 0
-    while(op != 5):
-        print("\nProbabilidades\n\t1. Pn (Probabilidad de tener n clientes)\n\t2. P(Ls > n)\n\t3. P(Ws > t)\n\t4. P(Wq > t)\n\t5. Salir")
-        op = int(input("\n¿Qué probabilidad deseas calcular? "))
-        ro = lam/miu
-
-        if op == 1:
-            n = int(input("Valor de n = "))
-            p = (1 - ro) * pow(ro, n)
-            print("Probabilidad de %d = %f" % (n, p))
-        elif op == 2:
-            n = int(input("Valor de n = "))
-            p = pow(ro, n + 1)
-            print("Probabilidad de Ls > %d = %f" % (n, p))
-        elif op == 3:
-            t = float(input("Valor de t = "))
-            p = math.exp(-miu * (1 - ro) * t)
-            print("Probabilidad de Ws > %f = %f" % (t, p))
-        elif op == 4:
-            t = float(input("Valor de t = "))
-            p = ro * math.exp(-miu * (1 - ro) * t)
-            print("Probabilidad de Wq > %f = %f" % (t, p))
-    return 0
-"""
 
     return 0
 options = { 1 : little,
