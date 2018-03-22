@@ -103,7 +103,7 @@ def p0sum(lam,miu,s,ro):
 	return (1/(sum+((math.pow((lam/miu),s))/(factorial(s)*(1 - ro)))))
 
 def mms():
-    print("\n MODELO M/M/1")
+    print("\n MODELO M/M/S")
 
     lam = float(input("Lambda (Tasa media de llegadas) = "))
     miu = float(input("Miu (Tasa media de servicio) = "))
@@ -118,14 +118,27 @@ def mms():
     ws = wq + (1/miu)
     ls = lam*ws
 
-    print("\nMedidas de desempeño del sistema: \n\tLs = %f\tLq = %f\tWs = %f\tWq = %f"%(ls,lq,ws,wq))
-    op = 1
-    while op == 1:
-        n = float(input("\nLa probabilidad que desea calcular: "))
-        pn = (math.pow(lam/miu,n))*p0/(factorial(n))
-        print("\nProbabilidad: W%i = %f"%(n,pn))
-        op = int(input("\n¿Desea calcular otra probabilidad?\n\t1. Si\n\t2. No\n>>"))
+    print("\nMedidas de desempeño del sistema: \n\n\tLs = %f\tLq = %f\tWs = %f\tWq = %f"%(ls,lq,ws,wq))
+    op = int(input("\n¿Qué desea calcular?\n\t1. Probabilidad\n\t2. Costos\n\t3. Salir\n>>"))
+    while op != 3:
+        if op == 1:
+            n = float(input("\nLa probabilidad que desea calcular: "))
+            if n > s:
+                pn = (math.pow(lam/miu,n))*p0/(factorial(n))
+            else:
+                pn = (math.pow(lam/miu,n))*p0/(factorial(s)*pow(s, n - s))
+            print("\nProbabilidad: P%i = %f"%(n,pn))
 
+        elif op == 2:
+            cc = float(input("Valor de Cc (Costo del servidor): "))
+            ccs = cc * s
+            cw = float(input("Valor de Cw (Costo de espera): "))
+            cwls = cw * ls
+            ctotal = ccs + cwls
+            print("\n\tCosto de servicio = ", ccs)
+            print("\n\tCosto de espera de clientes = ", cwls)
+            print("\n\tCosto total del sistema = ", ctotal)
+        op = int(input("\n¿Qué desea calcular?\n\t1. Probabilidad\n\t2. Costos\n\t3. Salir\n>>"))
 
     return 0
 options = { 1 : little,
