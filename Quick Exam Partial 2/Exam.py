@@ -7,12 +7,12 @@ def matA():
 	porcentaje = float(input("Introduce el porcentaje = "))
 
 	Matrix = [[0 for i in range(n)] for i in range(n)]
-
+	"""
 	for i in range(n):
 		for j in range(n):
 			print(Matrix[i][j], end = " ")
 		print()
-
+	"""
 	p = (n*n)*(porcentaje/100)
 	round(p,0)
 
@@ -49,12 +49,12 @@ def matB():
 	porcentaje = float(input("Introduce el porcentaje = "))
 
 	Matrix = [[0 for i in range(n)] for i in range(n)]
-
+	"""
 	for i in range(n):
 		for j in range(n):
 			print(Matrix[i][j], end = " ")
 		print()
-
+	"""
 	p = (n*n)*(porcentaje/100)
 	round(p,0)
 
