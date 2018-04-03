@@ -97,4 +97,5 @@ options = { 1 : matA,
 num = 0
 while num != 3:
 	num = int(input("\nElige la matriz que deseas probar:\n\t1. Matriz A\n\t2. Matriz B\n\t3. Salir\n>> "))
-	options[num]()
+	if num != 3:
+		options[num]()
