@@ -12,31 +12,31 @@ print("Métodos Cuantitativos y simulación\nAlumnos:\n\tShara Teresa González 
 
 def little():
     print("\nLEY DE LITTLE\n")
-    lam = float(input("Valor de lambda(Tasa media de llegadas) = "))
-    miu = float(input("Valor de Miu(Numero esperado de clientes en cola) = "))
+    lam = float(input("Valor de lambda (Tasa media de llegadas): "))
+    miu = float(input("Valor de Miu (Tasa media de servicio): "))
 
     op = int(input("Elige una opción: \n\t1. Calcular las medidas de desempeño\n\t2. Factor de utilización con uno o más servidores\n>> "))
 
     if(op == 1):
-        gv = float(input("\nValor dado en el problema: \n\t1)Wq\n\t2)Ws\n\t3)Ls\n\t4)Lq\n>>"))
+        gv = float(input("\nValor dado en el problema: \n\t1)Wq\n\t2)Ws\n\t3)Ls\n\t4)Lq\n>> "))
 
         if gv == 1:
-            wq = float(input("Valor de Wq(Tiempo esperado de espera en la cola)="))
+            wq = float(input("Valor de Wq (Tiempo esperado de espera en la cola): "))
             lq = lam*wq
             ws = wq+(1/miu)
             ls = lam*ws
         elif gv == 2:
-            ws = float(input("Valor de Ws(Tiempo esperado de espera en el sistema)="))
+            ws = float(input("Valor de Ws (Tiempo esperado de espera en el sistema): "))
             ls = lam*ws
             wq = ws-(1/miu)
             lq = lam*wq
         elif gv == 3:
-            ls = float(input("Valor de Ls(Número esperado de clientes en el sistema)="))
+            ls = float(input("Valor de Ls (Número esperado de clientes en el sistema):  "))
             ws = ls/lam
             wq = ws-(1/miu)
             lq = lam*wq
         elif gv == 4:
-            lq = float(input("Valor de Lq(Número esperado de clientes en la cola)="))
+            lq = float(input("Valor de Lq(Número esperado de clientes en la cola): "))
             wq = lq/lam
             ls = lq+(lam/miu)
             lq = lam*wq
@@ -44,6 +44,7 @@ def little():
             print("Opción invalida")
 
         print("\n\tLs = %f\tLq = %f\tWs = %f\tWq = %f"%(ls,lq,ws,wq))
+        print("\n")
 
     else:
         serv = int(input("\nCantidad de servidores: "))
@@ -56,8 +57,8 @@ def little():
 def mm1():
     print("\n MODELO M/M/1\n")
 
-    lam = float(input("Lambda (Tasa media de llegadas) = "))
-    miu = float(input("Miu (Tasa media de servicio) = "))
+    lam = float(input("Lambda (Tasa media de llegadas): "))
+    miu = float(input("Miu (Tasa media de servicio): "))
 
     ls = lam / (miu - lam)
     lq = pow(lam,2) / (miu * (miu - lam))
@@ -105,12 +106,12 @@ def p0sum(lam,miu,s,ro):
 def mms():
     print("\n MODELO M/M/S")
 
-    lam = float(input("Lambda (Tasa media de llegadas) = "))
-    miu = float(input("Miu (Tasa media de servicio) = "))
+    lam = float(input("Lambda (Tasa media de llegadas): "))
+    miu = float(input("Miu (Tasa media de servicio): "))
     s = int(input("Numero de servidores: "))
 
     ro = lam/(s*miu)
-    print("ro = ", ro)
+    print("\n\tro = ", ro)
 
     p0 = p0sum(lam,miu,s,ro)
     lq = ((math.pow(lam/miu,s))*p0*ro)/(factorial(s)*math.pow(1 - ro,2))
@@ -123,21 +124,24 @@ def mms():
     while op != 3:
         if op == 1:
             n = float(input("\nLa probabilidad que desea calcular: "))
-            if n > s:
+            if n == 0:
+                pn = p0
+            elif n < s:
                 pn = (math.pow(lam/miu,n))*p0/(factorial(n))
             else:
                 pn = (math.pow(lam/miu,n))*p0/(factorial(s)*pow(s, n - s))
             print("\nProbabilidad: P%i = %f"%(n,pn))
 
         elif op == 2:
-            cc = float(input("Valor de Cc (Costo del servidor): "))
+            cc = float(input("Valor de Cs (Costo del servidor): "))
             ccs = cc * s
-            cw = float(input("Valor de Cw (Costo de espera): "))
+            cw = float(input("Valor de Cw (Costo de espera por unidad de tiempo y cliente): "))
             cwls = cw * ls
             ctotal = ccs + cwls
-            print("\n\tCosto de servicio = ", ccs)
-            print("\n\tCosto de espera de clientes = ", cwls)
-            print("\n\tCosto total del sistema = ", ctotal)
+            print("\n\tCcS (Costo de servicio) = ", ccs)
+            print("\n\tLs (Valor esperado del número de clientes en el sistema) = ", ls)
+            print("\n\tCwLs (Costo de espera) = ", cwls)
+            print("\n\tCTotal (Costo total del sistema) = ", ctotal)
         op = int(input("\n¿Qué desea calcular?\n\t1. Probabilidad\n\t2. Costos\n\t3. Salir\n>>"))
 
     return 0
