@@ -74,7 +74,7 @@ def mm1():
 
         if op == 1:
             n = int(input("Valor de n = "))
-            p = ro * pow(ro, n)
+            p = (1 - ro) * pow(ro, n)
             print("Probabilidad de %d = %f" % (n, p))
         elif op == 2:
             n = int(input("Valor de n = "))
