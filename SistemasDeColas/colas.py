@@ -18,7 +18,7 @@ def little():
     op = int(input("Elige una opción: \n\t1. Calcular las medidas de desempeño\n\t2. Factor de utilización con uno o más servidores\n>> "))
 
     if(op == 1):
-        gv = float(input("\nValor dado en el problema: \n\t1)Wq\n\t2)Ws\n\t3)Ls\n\t4)Lq\n>> "))
+        gv = float(input("\nValor dado en el problema: \n\t1)Wq (Tiempo esperado de espera en la cola)\n\t2)Ws (Tiempo esperado de espera en el sistema)\n\t3)Ls (Número esperado de clientes en el sistema)\n\t4)Lq (Número esperado de clientes en la cola)\n>> "))
 
         if gv == 1:
             wq = float(input("Valor de Wq (Tiempo esperado de espera en la cola): "))
