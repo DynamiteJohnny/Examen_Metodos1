@@ -24,7 +24,7 @@ print("\nMétodos Cuantitativos y simulación\nAlumnos:\n\tShara Teresa Gonzále
 print("\n Elevación de matrices\n")
 
 
-path = input("Ingrese un archivo de matriz (utilize paths relativos) Archivo de ejemplo: './matrix.txt' >  ")
+path = input("Ingrese un archivo de matriz (utiliza paths relativos) Archivo de ejemplo: './matrix.txt' >  ")
 A = read_matrix(path)
 print(A)
 print("\n")
